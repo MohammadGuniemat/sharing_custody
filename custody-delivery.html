@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شاشة تسليم العهدة</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+            .footer {
+            background-color: #004aad;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+    * { direction: rtl; font-family: 'Cairo', sans-serif; box-sizing: border-box; }
+    body { margin: 0; background: #f4f6f9; }
+    .header { background: #004aad; color: white; padding: 20px; text-align: center; }
+    .content {
+        background: white;
+        width: 95%;
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    }
+    fieldset { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 20px; padding: 15px; }
+    legend { font-weight: 600; color: #004aad; }
+    label { font-weight: 600; margin-bottom: 5px; display: block; }
+    input, select, textarea {
+        width: 100%; padding: 10px; margin-bottom: 15px;
+        border-radius: 6px; border: 1px solid #ccc;
+    }
+    .row { display: flex; gap: 15px; }
+    .row > div { flex: 1; }
+    .readonly { background: #eee; }
+    button {
+        background: #004aad; color: white; border: none;
+        padding: 12px; font-size: 16px;
+        border-radius: 6px; cursor: pointer;
+        margin-top: 10px;
+    }
+    button.secondary { background: #169397; }
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>شاشة تسليم العهدة للموظف</h1>
+</div>
+
+<div class="content">
+
+<form>
+
+<!-- بيانات المادة -->
+<fieldset>
+    <legend>بيانات المادة</legend>
+
+    <div class="row">
+        <div>
+            <label>رقم المادة (بحث)</label>
+            <input type="text" placeholder="أدخل رقم المادة">
+        </div>
+        <div>
+            <label>اسم المادة (بحث)</label>
+            <input type="text" placeholder="أدخل اسم المادة">
+        </div>
+    </div>
+
+    <label>وصف المادة</label>
+    <textarea class="readonly" readonly></textarea>
+
+    <div class="row">
+        <div>
+            <label>الكمية</label>
+            <input type="number" min="1" required>
+        </div>
+        <div>
+            <label>الوحدة</label>
+            <input class="readonly" readonly>
+        </div>
+    </div>
+
+    <label>حالة المادة</label>
+    <select required>
+        <option>جديد</option>
+        <option>مستعمل</option>
+    </select>
+
+    <label>نوع العهدة</label>
+    <select required>
+        <option>عهدة شخصية</option>
+        <option>عهدة موقع</option>
+        <option>عهدة تشاركية</option>
+    </select>
+</fieldset>
+
+<!-- بيانات الموظف -->
+<fieldset>
+    <legend>بيانات الموظف</legend>
+
+    <div class="row">
+        <div>
+            <label>رقم الموظف (بحث)</label>
+            <input type="text" placeholder="رقم الموظف">
+        </div>
+        <div>
+            <label>اسم الموظف (بحث)</label>
+            <input type="text" placeholder="اسم الموظف">
+        </div>
+    </div>
+</fieldset>
+
+<!-- ملاحظات ومرفقات -->
+<fieldset>
+    <legend>الاعتماد والمرفقات</legend>
+
+    <label>ملاحظات</label>
+    <textarea rows="3"></textarea>
+<div style="display: grid;">
+
+    <button type="button" class="secondary" style="margin: auto;" >طباعة نموذج الاستلام</button>
+</div>
+    <label>مرفق توقيع الاستلام (إجباري)</label>
+  
+    <input type="file" accept="image/*" required>
+</fieldset>
+<div style="display: grid;">
+
+    <button type="submit"  style="margin: auto;">حفظ وتسليم العهدة</button>
+</div>
+
+</form>
+
+</div>
+<div class="footer">
+    جميع الحقوق محفوظة © شركة مياه العقبة
+</div>
+</body>
+</html>

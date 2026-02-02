@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شاشة إدخال المواد</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            direction: rtl;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f4f6f9;
+        }
+
+        .header {
+            background-color: #004aad;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            background-color: white;
+            width: 95%;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: 600;
+            color: #004aad;
+            padding: 0 10px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .row > div {
+            flex: 1;
+        }
+
+        button {
+            width: 100%;
+            background-color: #004aad;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003080;
+        }
+
+        .footer {
+            background-color: #004aad;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>شركة مياه العقبة</h1>
+    <p>نظام إدارة المستودعات والعهدة</p>
+</div>
+
+<div class="content">
+    <h2>شاشة إدخال المواد</h2>
+
+    <form>
+
+        <!-- بيانات أساسية -->
+        <fieldset>
+            <legend>البيانات الأساسية</legend>
+
+            <div class="row">
+                <div>
+                    <label>رقم المادة</label>
+                    <input type="text" required>
+                </div>
+                <div>
+                    <label>اسم المادة</label>
+                    <input type="text" required>
+                </div>
+            </div>
+
+            <label>وصف المادة</label>
+            <textarea rows="2"></textarea>
+
+            <div class="row">
+                <div>
+                    <label>التصنيف</label>
+                    <select>
+                        <option>مواد مكتبية</option>
+                        <option>مواد كهربائية</option>
+                        <option>معدات</option>
+                        <option>أدوات صيانة</option>
+                        <option>أخرى</option>
+                    </select>
+                </div>
+                <div>
+                    <label>الوحدة</label>
+                    <select required>
+                        <option>قطعة</option>
+                        <option>كيلو</option>
+                        <option>متر</option>
+                        <option>علبة</option>
+                        <option>حقيبة</option>
+                        <option>أخرى</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- بيانات المخزون -->
+        <fieldset>
+            <legend>بيانات تخزينية</legend>
+
+            <div class="row">
+                <div>
+                    <label>الكمية</label>
+                    <input type="number" min="0" required>
+                </div>
+                <div>
+                    <label>الحد الأدنى من توفر المادة</label>
+                    <input type="number" min="0">
+                </div>
+            </div>
+
+            <label>الموقع التخزيني</label>
+            <!-- <input type="text" placeholder="مثال: مستودع رئيسي - الحرفية "> -->
+            <select required >
+                        <option>الحرفية</option>
+                        <option>المستودع الرئيسي</option>
+                        <option>التنقية</option>
+                        <option>الضخ</option>
+                        <option>التحلية</option>
+                    </select>
+
+            <label>تاريخ الإدخال</label>
+            <input type="date">
+        </fieldset>
+
+        <!-- بيانات المورد والتكلفة -->
+        <fieldset>
+            <legend>المورد والتكلفة</legend>
+
+            <label>المورد</label>
+            <input list="suppliers" placeholder="ابحث عن المورد...">
+            <datalist id="suppliers">
+                <option value="شركة المورد الأول">
+                <option value="شركة المورد الثاني">
+                <option value="مؤسسة التوريد العربية">
+            </datalist>
+
+            <div class="row">
+                <div>
+                    <label>السعر التقريبي</label>
+                    <input type="number" step="0.01">
+                </div>
+                <div>
+                    <label>العملة</label>
+                    <select>
+                        <option>دينار</option>
+                        <option>دولار</option>
+                    </select>
+                </div>
+            </div>
+
+            <label>رقم أمر الشراء</label>
+            <input type="text">
+        </fieldset>
+
+        <!-- بيانات العهدة والصيانة -->
+        <fieldset>
+            <legend>بيانات العهدة والصيانة</legend>
+
+            <div class="row">
+                <div>
+                    <label> تعتبر من العهد المستهلكة؟</label>
+                    <select>
+                        <option>نعم</option>
+                        <option>لا</option>
+                    </select>
+                </div>
+                <div>
+                    <label>حالة المادة</label>
+                    <select>
+                        <option>جديد</option>
+                        <option>مستعمل</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label>العمر الافتراضي (بالسنوات)</label>
+                    <input type="number" min="0">
+                </div>
+                <div>
+                    <label>حالة الصيانة</label>
+                    <select>
+                        <option>لا تحتاج صيانة</option>
+                        <option>تحتاج صيانة</option>
+                        <option>تحت الصيانة</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- بيانات إضافية -->
+        <fieldset>
+            <legend>بيانات إضافية</legend>
+
+            <label>باركود / QR</label>
+            <input type="text">
+
+            <label>ملاحظات</label>
+            <textarea rows="3"></textarea>
+        </fieldset>
+
+        <button type="submit">حفظ المادة</button>
+
+    </form>
+</div>
+
+<div class="footer">
+    جميع الحقوق محفوظة © شركة مياه العقبة
+</div>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>نظام إدارة المستودعات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * { font-family: 'Cairo', sans-serif; direction: rtl; box-sizing: border-box; }
+        body { margin: 0; background: #f4f6f9; }
+
+        .header {
+            background: #004aad;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+                .footer {
+            background-color: #004aad;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 40px;
+            position: fixed;
+            width: 100%;
+        bottom:0;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .card {
+            background: white;
+            width: 300px;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,.1);
+            cursor: pointer;
+            transition: transform .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            color: #004aad;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>نظام إدارة المستودعات والعهدة</h1>
+</div>
+
+<div class="menu">
+    <div class="card" onclick="location.href='material-entry.html'">
+        <h2>إدخال المواد</h2>
+        <p>إضافة وتحديث بيانات المواد في المستودع</p>
+    </div>
+
+    <div class="card" onclick="location.href='custody-delivery.html'">
+        <h2>تسليم العهدة</h2>
+        <p>تسليم المواد للموظفين وتوثيق الاستلام</p>
+    </div>
+
+        <div class="card" onclick="location.href='Return-Custody.html'">
+        <h2>إرجاع العهدة</h2>
+        <p>إرجاع المواد عند التقاعد أو إنهاء الغاية من استخدام المادة</p>
+    </div>
+    
+</div>
+
+<div class="footer">
+    جميع الحقوق محفوظة © شركة مياه العقبة
+</div>
+</body>
+</html>
